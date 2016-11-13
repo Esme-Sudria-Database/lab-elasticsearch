@@ -16,7 +16,7 @@ uses Ansible to install elasticsearch.
 
 You can find the latest version to ...
 
-    git clone ...
+    git clone git@github.com:Esme-Sudria-Database/vagrant-elasticsearch.git
 
 ## Code Example
 
