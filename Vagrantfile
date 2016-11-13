@@ -13,7 +13,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: <<-SCRIPT
     mkdir -p /home/vagrant/ansible-local
     cp -rf /vagrant/* /home/vagrant/ansible-local
-    chmod -x /home/vagrant/ansible-local/inventory.ini
+    chmod -x /home/vagrant/ansible-local/local.ini
 
     apt-get update
     apt-get install -y python-pip
