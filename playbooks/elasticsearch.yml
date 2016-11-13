@@ -3,7 +3,7 @@
   become: yes
   become_method: sudo
   vars:
-
+    elasticsearch_jvm_options_memory: 512m
   tasks:
 
   roles:

@@ -1,2 +1,5 @@
 ---
-# handlers file for fabientools.elasticsearch
+- name: ensure elasticsearch is restarted.
+  service:
+    name: elasticsearch
+    state: restarted

@@ -1,6 +1,6 @@
 galaxy_info:
   author: fabien arcellier
-  description: setup elasticsearch instance that listen on 0.0.0.0:9200
+  description: setup elasticsearch instance that listen on 0.0.0.0:9200 on ubuntu
   license: license (GPLv2, CC-BY, etc)
   min_ansible_version: 1.2
 
@@ -13,4 +13,6 @@ galaxy_info:
         - xenial
 
   galaxy_tags: []
-  dependencies: []
+
+dependencies:
+  - fabientools.openjdk-jre

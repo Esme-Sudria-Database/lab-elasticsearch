@@ -11,7 +11,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision "shell", inline: <<-SCRIPT
-    mkdir /home/vagrant/ansible-local
+    mkdir -p /home/vagrant/ansible-local
     cp -rf /vagrant/* /home/vagrant/ansible-local
     chmod -x /home/vagrant/ansible-local/inventory.ini
 
