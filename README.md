@@ -16,7 +16,7 @@ uses Ansible to install elasticsearch.
 
 You can find the latest version to ...
 
-    git clone git@github.com:Esme-Sudria-Database/vagrant-elasticsearch.git
+    git clone https://github.com/Esme-Sudria-Database/vagrant-elasticsearch.git
 
 ## Code Example
 
@@ -36,6 +36,8 @@ $ curl http://localhost:9200
   "tagline" : "You Know, for Search"
 }
 ```
+
+You can use [Sense](https://chrome.google.com/webstore/detail/sense-beta/lhjgkmllcaadmopgmanpapmpjgmfcfig?hl=fr) on Google Chrome as extension.
 
 ## Installation
 
