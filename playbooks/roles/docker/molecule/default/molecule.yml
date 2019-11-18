@@ -1,0 +1,26 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+platforms:
+  - name: instance
+    image: ubuntu:18.04
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+    options:
+      x: ["303", "503", "701", "703"]
+  inventory:
+    group_vars:
+      all:
+        docker_daemon_active: false
+scenario:
+  name: default
+verifier:
+  name: testinfra
+  lint:
+    name: flake8

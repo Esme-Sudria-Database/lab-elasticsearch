@@ -1,0 +1,12 @@
+[program:{{ esme_database_kibana_container_name }}]
+process_name={{ esme_database_kibana_container_name }}
+command=docker run --rm -e ELASTICSEARCH_HOSTS=http://localhost:9200 --net=host {{ esme_database_kibana_container_name }}
+directory=/var/run
+user=root
+autostart=true
+autorestart=true
+startretries=3
+redirect_stderr=false
+stdout_logfile=/var/log/{{ esme_database_kibana_container_name }}_stdout.log
+stderr_logfile=/var/log/{{ esme_database_kibana_container_name }}_stderr.log
+stopasgroup=True

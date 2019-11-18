@@ -1,0 +1,4 @@
+---
+# defaults file for esme_database.elastisearch
+esme_database_elasticsearch_container_name: esme_elasticsearch
+esme_database_kibana_container_name: esme_kibana

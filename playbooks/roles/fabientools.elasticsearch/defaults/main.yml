@@ -1,4 +1,0 @@
----
-elasticsearch_cluster_name: search
-elasticsearch_node_name: search-1
-elasticsearch_jvm_options_memory: 2g

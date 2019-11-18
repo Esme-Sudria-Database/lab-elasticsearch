@@ -1,0 +1,9 @@
+---
+- hosts: elasticsearch
+  become: yes
+  become_method: sudo
+  tasks:
+
+  roles:
+    - docker
+    - esme_database.elasticsearch

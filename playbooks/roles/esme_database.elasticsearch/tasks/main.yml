@@ -1,0 +1,85 @@
+---
+
+- name: ensure supervisord is installed
+  apt:
+    name: supervisor
+
+- name: ensure /opt/elasticsearch directory exists
+  file:
+    path: /opt/elasticsearch
+    state: directory
+
+- name: ensure docker image definition is present on host
+  copy:
+    src: files/elasticsearch/Dockerfile
+    dest: /opt/elasticsearch/Dockerfile
+    force: true
+
+- name: ensure docker image is build
+  docker_image:
+    build:
+      path: /opt/elasticsearch
+      pull: yes
+    name: "{{ esme_database_elasticsearch_container_name }}"
+    source: build
+
+- name: ensure service configuration is setup
+  template:
+    src: templates/elasticsearch.conf.j2
+    dest: "/etc/supervisor/conf.d/{{ esme_database_elasticsearch_container_name }}.conf"
+    owner: root
+    group: root
+  register: esme_database_elasticsearch_service_configuration
+
+- name: ensure supervisord service configuration is reloaded
+  command: supervisorctl reload
+  when: esme_database_elasticsearch_service_configuration.changed
+
+- name: pause after reloading supervisorctl
+  pause:
+    seconds: 5
+
+- name: ensure elasticsearch service is started
+  supervisorctl:
+    name: "{{ esme_database_elasticsearch_container_name }}"
+    state: started
+
+- name: ensure /opt/kibana directory exists
+  file:
+    path: /opt/kibana
+    state: directory
+
+- name: ensure docker image definition is present on host
+  copy:
+    src: files/kibana/Dockerfile
+    dest: /opt/kibana/Dockerfile
+    force: true
+
+- name: ensure docker image is build
+  docker_image:
+    build:
+      path: /opt/kibana
+      pull: yes
+    name: "{{ esme_database_kibana_container_name }}"
+    source: build
+
+- name: ensure service configuration is setup
+  template:
+    src: templates/kibana.conf.j2
+    dest: "/etc/supervisor/conf.d/{{ esme_database_kibana_container_name }}.conf"
+    owner: root
+    group: root
+  register: esme_database_kibana_service_configuration
+
+- name: ensure supervisord service configuration is reloaded
+  command: supervisorctl reload
+  when: esme_database_kibana_service_configuration.changed
+
+- name: pause after reloading supervisorctl
+  pause:
+    seconds: 5
+
+- name: ensure kibana service is started
+  supervisorctl:
+    name: "{{ esme_database_kibana_container_name }}"
+    state: started
