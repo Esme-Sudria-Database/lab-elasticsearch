@@ -18,10 +18,12 @@ You can find the latest version to ...
 
     git clone https://github.com/Esme-Sudria-Database/vagrant-elasticsearch.git
 
-## Code Example
+## Usage
+
+1 . Query Elasticsearch
 
 ```bash
-$ curl http://localhost:9200
+$ curl http://192.168.34.10:9200
 {
   "name" : "search-1",
   "cluster_name" : "search",
@@ -37,7 +39,9 @@ $ curl http://localhost:9200
 }
 ```
 
-You can use [Sense](https://chrome.google.com/webstore/detail/sense-beta/lhjgkmllcaadmopgmanpapmpjgmfcfig?hl=fr) on Google Chrome as extension.
+2 . Use Kibana for data exploration
+
+* go on http://192.168.34.10:5601
 
 ## Installation
 
@@ -52,7 +56,7 @@ $ vagrant up
 ==> default: ok: [localhost]
 ==> default:
 ==> default: PLAY RECAP *********************************************************************
-==> default: localhost                  : ok=10   changed=0    unreachable=0    failed=0
+==> default: localhost                  : ok=34   changed=0    unreachable=0    failed=0
 ```
 
 ## Tests
