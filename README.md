@@ -25,15 +25,19 @@ You can find the latest version to ...
 ```bash
 $ curl http://192.168.34.10:9200
 {
-  "name" : "search-1",
-  "cluster_name" : "search",
-  "cluster_uuid" : "h8Im30o6QLu5yH44er0feA",
+  "name" : "vagrant",
+  "cluster_name" : "docker-cluster",
+  "cluster_uuid" : "Ve480hGJSsiutj5_SJZcHg",
   "version" : {
-    "number" : "5.0.0",
-    "build_hash" : "253032b",
-    "build_date" : "2016-10-26T05:11:34.737Z",
+    "number" : "7.4.2",
+    "build_flavor" : "default",
+    "build_type" : "docker",
+    "build_hash" : "2f90bbf7b93631e52bafb59b3b049cb44ec25e96",
+    "build_date" : "2019-10-28T20:40:44.881551Z",
     "build_snapshot" : false,
-    "lucene_version" : "6.2.0"
+    "lucene_version" : "8.2.0",
+    "minimum_wire_compatibility_version" : "6.8.0",
+    "minimum_index_compatibility_version" : "6.0.0-beta1"
   },
   "tagline" : "You Know, for Search"
 }
@@ -56,7 +60,7 @@ $ vagrant up
 ==> default: ok: [localhost]
 ==> default:
 ==> default: PLAY RECAP *********************************************************************
-==> default: localhost                  : ok=34   changed=0    unreachable=0    failed=0
+==> default: localhost                  : ok=23   changed=17    unreachable=0    failed=0
 ```
 
 ## Tests
